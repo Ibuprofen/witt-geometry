@@ -1,6 +1,6 @@
 # witt-geometry
 
-THREE.js geometry for the [Wittgenstein project](burningman.org/event/brc/2016-art-installations/#WittgensteinDaVinciRachmaninoffARecursiveWoodenDesign)
+THREE.js geometry for the [Wittgenstein project](http://burningman.org/event/brc/2016-art-installations/#WittgensteinDaVinciRachmaninoffARecursiveWoodenDesign)
 
 
 ### Install & Usage
