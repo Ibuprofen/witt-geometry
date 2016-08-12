@@ -17,14 +17,20 @@ export default class WittgensteinGeometry extends HexagonGeometry {
 
     // create the triangles that "fan out" from the hexagon
     // zero address is the center vertex
+
+    let wrapVal = 6,
+        stepA = 2,
+        stepB = 1
+
     for (var i = 1; i <= 6; i++) {
 
-      let aPos = (i - 2 < 1) ? (6 + (i - 2)) : i - 2
-      let bPos = i
+      let aPos = (i + stepA > wrapVal) ? ((i + stepA) - wrapVal) : i + stepA
+      let bPos = (i + stepB > wrapVal) ? ((i + stepB) - wrapVal) : i + stepB
 
       this.vertices.push(this.projectedVector(this.vertices[aPos], this.vertices[bPos], fanDist))
 
       this.faces.push(new THREE.Face3(i, this.vertices.length - 1, (i === 6) ? 1 : i + 1))
+
     }
 
   }

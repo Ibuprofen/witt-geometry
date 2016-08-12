@@ -46,10 +46,14 @@ var WittgensteinGeometry = function (_HexagonGeometry) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(WittgensteinGeometry).call(this, radius, depth, hexFaces));
 
+    var wrapVal = 6,
+        stepA = 2,
+        stepB = 1;
+
     for (var i = 1; i <= 6; i++) {
 
-      var aPos = i - 2 < 1 ? 6 + (i - 2) : i - 2;
-      var bPos = i;
+      var aPos = i + stepA > wrapVal ? i + stepA - wrapVal : i + stepA;
+      var bPos = i + stepB > wrapVal ? i + stepB - wrapVal : i + stepB;
 
       _this.vertices.push(_this.projectedVector(_this.vertices[aPos], _this.vertices[bPos], fanDist));
 
